@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-city-table
+      author: Aziizade Ceyhun
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: city_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city_name
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+            remarks: Table to store information about cities
+

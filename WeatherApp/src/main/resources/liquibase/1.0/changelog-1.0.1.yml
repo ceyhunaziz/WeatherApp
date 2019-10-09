@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-weather-table
+      author: Aziizade Ceyhun
+      changes:
+        - createTable:
+            tableName: weather
+            columns:
+              - column:
+                  name: weather_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: temperature
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_city_id
+                    references: city(city_id)
+            remarks: Table to store information about weather
